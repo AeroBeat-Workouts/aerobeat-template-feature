@@ -2,7 +2,7 @@
 
 This is the official template for creating a **Feature** repository within the AeroBeat ecosystem.
 
-A **Feature** contains the pure gameplay logic for a specific mode (e.g., Boxing, Flow, Step). It is designed to be modular and plugged into an **Assembly**.
+A **Feature** contains the pure gameplay logic for a specific mode (for the current AeroBeat v1 slice, think **Boxing** or **Flow**). It is designed to be modular and plugged into an **Assembly**.
 
 ## 📋 Repository Details
 
@@ -68,7 +68,7 @@ godot --headless --path .testbed --script addons/gut/gut_cmdln.gd \
 ### Validation notes
 
 - `.testbed/addons.jsonc` is the committed dev/test dependency contract.
-- The current manifest still pins the transition-era `aerobeat-core` package key to `v0.1.0` alongside GUT `main`. Treat that as bootstrap-state drift, not the canonical long-term repo-boundary story.
-- Canonical lane ownership for live docs is `aerobeat-feature-core`, plus `aerobeat-content-core` when the feature consumes authored playable content.
+- The current testbed manifest intentionally pins only the minimal lane-specific bootstrap needed for a generic feature template: `aerobeat-feature-core@main` plus GUT `main`.
+- `aerobeat-content-core` remains part of the repo-boundary story when a concrete feature consumes authored Songs, Charts, Sets, or Workouts, but it is not forced into the baseline template bootstrap.
 - Repo-local unit tests live under `.testbed/tests/`; this repo's current package payload is rooted at `/`, so the workbench does not ship a `.testbed/src` bridge for this subset.
 - The current package shape is consumed from the repo root (`subfolder: "/"`) for downstream installs.
