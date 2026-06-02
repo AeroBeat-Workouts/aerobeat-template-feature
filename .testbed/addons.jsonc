@@ -1,14 +1,16 @@
 {
   "$schema": "https://chickensoft.games/schemas/addons.schema.json",
   "addons": {
-    // Minimal current feature-template bootstrap for the retained AeroBeat v1 architecture.
-    // Use the gameplay/runtime lane core here; do not treat this template as a reason to reintroduce a universal aerobeat-core baseline.
     "aerobeat-feature-core": {
-      "url": "git@github.com:AeroBeat-Workouts/aerobeat-feature-core.git",
-      "checkout": "main",
-      "subfolder": "/"
+      "url": "../../aerobeat-feature-core",
+      "subfolder": "/",
+      "source": "symlink"
     },
-    // GUT drives the repo-local test suite inside the hidden testbed/workbench.
+    "aerobeat-tool-headless-manager": {
+      "url": "../../aerobeat-tool-headless-manager",
+      "subfolder": "/",
+      "source": "symlink"
+    },
     "gut": {
       "url": "git@github.com:bitwes/Gut.git",
       "checkout": "main",
