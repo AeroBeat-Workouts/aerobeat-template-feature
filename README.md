@@ -59,7 +59,7 @@ godot --headless --path .testbed --import
 From the repo root:
 
 ```bash
-godot --headless --path .testbed --script addons/gut/gut_cmdln.gd \
+godot --headless --path .testbed --script addons/aerobeat-vendor-godot-unit-test/gut_cmdln.gd \
   -gdir=res://tests \
   -ginclude_subdirs \
   -gexit
@@ -68,7 +68,7 @@ godot --headless --path .testbed --script addons/gut/gut_cmdln.gd \
 ### Validation notes
 
 - `.testbed/addons.jsonc` is the committed dev/test dependency contract.
-- The current testbed manifest intentionally pins only the minimal lane-specific bootstrap needed for a generic feature template: `aerobeat-feature-core@main` plus GUT `main`.
+- The current testbed manifest intentionally pins only the minimal lane-specific bootstrap needed for a generic feature template: `aerobeat-feature-core@main` plus `aerobeat-vendor-godot-unit-test` via the shared local sibling manifest.
 - `aerobeat-content-core` remains part of the repo-boundary story when a concrete feature consumes authored Songs, Charts, Sets, or Workouts, but it is not forced into the baseline template bootstrap.
 - Repo-local unit tests live under `.testbed/tests/`; this repo's current package payload is rooted at `/`, so the workbench does not ship a `.testbed/src` bridge for this subset.
 - The current package shape is consumed from the repo root (`subfolder: "/"`) for downstream installs.
