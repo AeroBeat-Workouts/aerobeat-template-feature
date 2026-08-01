@@ -1,16 +1,16 @@
-# AeroBeat Feature Template
+# AeroBeat Mode Template
 
-This is the official template for creating a **Feature** repository within the AeroBeat ecosystem.
+This is the official template for creating a **Mode** repository within the AeroBeat ecosystem.
 
-A **Feature** contains the pure gameplay logic for a specific mode (for the current AeroBeat v1 slice, think **Boxing** or **Flow**). It is designed to be modular and plugged into an **Assembly**.
+A **Mode** contains the pure gameplay logic for a specific gameplay mode (for the current AeroBeat v1 slice, think **Boxing** or **Flow**). It is designed to be modular and plugged into an **Assembly**.
 
 ## 📋 Repository Details
 
-*   **Type:** Feature (Gameplay Logic)
+*   **Type:** Mode (Gameplay Logic)
 *   **License:** **GNU GPLv3** (Strict Copyleft)
 *   **Dependencies:**
-    *   `aerobeat-feature-core` (Canonical gameplay/runtime contract)
-    *   `aerobeat-content-core` (Required when the feature consumes authored Songs, Charts, Sets, or Workouts)
+    *   `aerobeat-mode-core` (Canonical gameplay/runtime contract)
+    *   `aerobeat-content-core` (Required when the mode consumes authored Songs, Charts, Sets, or Workouts)
     *   `aerobeat-vendor-*` (Allowed)
 
 ## GodotEnv development flow
@@ -34,7 +34,7 @@ cd .testbed
 godotenv addons install
 ```
 
-That restores this repo's current dev/test manifest into `.testbed/addons/`. In the long-term lane model, Feature repos should describe themselves in terms of `aerobeat-feature-core` plus any adjacent contracts they actually consume, especially `aerobeat-content-core` for playable authored content.
+That restores this repo's current dev/test manifest into `.testbed/addons/`. In the long-term lane model, Mode repos should describe themselves in terms of `aerobeat-mode-core` plus any adjacent contracts they actually consume, especially `aerobeat-content-core` for playable authored content.
 
 ### Open the workbench
 
@@ -44,7 +44,7 @@ From the repo root:
 godot --editor --path .testbed
 ```
 
-Use this `.testbed/` project as the canonical direct-development and bugfinding surface for feature work.
+Use this `.testbed/` project as the canonical direct-development and bugfinding surface for mode work.
 
 ### Import smoke check
 
@@ -68,7 +68,7 @@ godot --headless --path .testbed --script addons/aerobeat-vendor-godot-unit-test
 ### Validation notes
 
 - `.testbed/addons.jsonc` is the committed dev/test dependency contract.
-- The current testbed manifest intentionally pins only the minimal lane-specific bootstrap needed for a generic feature template: `aerobeat-feature-core@main` plus `aerobeat-vendor-godot-unit-test` via the shared local sibling manifest.
-- `aerobeat-content-core` remains part of the repo-boundary story when a concrete feature consumes authored Songs, Charts, Sets, or Workouts, but it is not forced into the baseline template bootstrap.
+- The current testbed manifest intentionally pins only the minimal lane-specific bootstrap needed for a generic mode template: `aerobeat-mode-core@main` plus `aerobeat-vendor-godot-unit-test` via the shared local sibling manifest.
+- `aerobeat-content-core` remains part of the repo-boundary story when a concrete mode consumes authored Songs, Charts, Sets, or Workouts, but it is not forced into the baseline template bootstrap.
 - Repo-local unit tests live under `.testbed/tests/`; this repo's current package payload is rooted at `/`, so the workbench does not ship a `.testbed/src` bridge for this subset.
 - The current package shape is consumed from the repo root (`subfolder: "/"`) for downstream installs.
